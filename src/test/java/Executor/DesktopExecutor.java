@@ -1,6 +1,9 @@
 package Executor;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.logging.LogType;
+import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
@@ -11,6 +14,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
 
 public class DesktopExecutor {
     public WebDriver driver;
@@ -30,6 +34,9 @@ public class DesktopExecutor {
         caps.setCapability("browserstack.local", "false");
         caps.setCapability("build", "Automate-onboarding ");
         caps.setCapability("browserstack.selenium_version", "3.14.0");
+        LoggingPreferences logPrefs = new LoggingPreferences();
+        logPrefs.enable(LogType.BROWSER, Level.ALL);
+        caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
         driver = new RemoteWebDriver(new URL(URL), caps);
         SessionId session = ((RemoteWebDriver) driver).getSessionId();
         System.out.println("Session id: " + session.toString());

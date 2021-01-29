@@ -41,7 +41,7 @@
                     <suiteXmlFiles>
 
                         <!--suppress UnresolvedMavenProperty -->
-                        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                        <suiteXmlFile>zoopla.xml</suiteXmlFile>
                     </suiteXmlFiles>
 
                 </configuration>
