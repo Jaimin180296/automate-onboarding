@@ -10,7 +10,6 @@ import org.openqa.selenium.remote.SessionId;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -22,8 +21,7 @@ public class DesktopExecutor {
     public final String AUTOMATE_USERNAME = "jaiminmehta3";
     public final String AUTOMATE_ACCESS_KEY = "f2q1FMatZb3X88b19jQ6";
     public final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    public final String   String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
-
+    public final static  String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 
 
     public WebDriver driver() throws MalformedURLException {
@@ -36,8 +34,6 @@ public class DesktopExecutor {
         caps.setCapability("build", "Automate-onboarding ");
         caps.setCapability("browserstack.selenium_version", "3.14.0");
         caps.setCapability("build", buildName);
-        
-        
         LoggingPreferences logPrefs = new LoggingPreferences();
         logPrefs.enable(LogType.BROWSER, Level.ALL);
         caps.setCapability(CapabilityType.LOGGING_PREFS, logPrefs);
