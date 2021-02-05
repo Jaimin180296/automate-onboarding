@@ -21,7 +21,7 @@ public class DesktopExecutor {
     public final String AUTOMATE_USERNAME = "jaiminmehta3";
     public final String AUTOMATE_ACCESS_KEY = "f2q1FMatZb3X88b19jQ6";
     public final String URL = "https://" + AUTOMATE_USERNAME + ":" + AUTOMATE_ACCESS_KEY + "@hub-cloud.browserstack.com/wd/hub";
-    public final static  String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
+    public final String buildName = System.getenv("BROWSERSTACK_BUILD_NAME");
 
 
     public WebDriver driver() throws MalformedURLException {
